@@ -43,3 +43,6 @@ venv/
 
 # Docker files
 docker-compose.yml
+
+# dotenv
+.env
