@@ -16,15 +16,51 @@ router.get('/', async (req: Request, res: Response) => {
     res.send(items);
 });
 
-//@TODO
 //Add an endpoint to GET a specific resource by Primary Key
+router.get('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    if (!id) {
+        return res.status(400).send({ message: 'Id is required or malformed' });
+    }
+
+    const item = await FeedItem.findByPk(id);
+    if (!item) {
+        return res.status(404).send({ message: 'Feed Item does not exist' });
+    }
+
+    res.send(item);
+});
 
 // update a specific resource
 router.patch('/:id', 
     requireAuth, 
     async (req: Request, res: Response) => {
-        //@TODO try it yourself
-        res.send(500).send("not implemented")
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ message: 'Id is required or malformed' });
+        }
+
+        const item = await FeedItem.findByPk(id);
+        if (!item) {
+            return res.status(404).send({ message: 'Feed Item does not exist' });
+        }
+
+        const { caption, url: fileName } = req.body;
+        // check Caption is valid
+        if (!caption) {
+            return res.status(400).send({ message: 'Caption is required or malformed' });
+        }
+
+        // check Filename is valid
+        if (!fileName) {
+            return res.status(400).send({ message: 'File url is required' });
+        }
+
+        item.caption = caption;
+        item.url = fileName;
+        await item.save({ fields: ['caption', 'url'] })
+
+        res.send(item);
 });
 
 
