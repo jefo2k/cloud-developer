@@ -93,8 +93,8 @@ router.post('/',
     }
 
     const item = await new FeedItem({
-            caption: caption,
-            url: fileName
+        caption: caption,
+        url: fileName
     });
 
     const saved_item = await item.save();
