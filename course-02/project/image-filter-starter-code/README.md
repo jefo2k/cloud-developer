@@ -46,3 +46,13 @@ Prevent requests without valid authentication headers.
 
 Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
 > !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+
+## Solution
+
+The solution url for the Image Filtering Microservice is here: [http://image-filter-jefo-dev.us-east-2.elasticbeanstalk.com/filteredImage?image_url=](http://image-filter-jefo-dev.us-east-2.elasticbeanstalk.com/filteredImage?image_url=)
+
+[Here](https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=angry+cat+images&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=sur:cl,iar:s,ift:jpg#imgrc=dOL00eAg7TKMIM) you can get some valid publicly accessible image urls to test the service.
+
+> !NOTE: I have forked the entire cloud-developer repo
+
+Have fun!
