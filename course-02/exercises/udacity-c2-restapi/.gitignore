@@ -40,3 +40,9 @@ venv/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Docker files
+docker-compose.yml
+
+# dotenv
+.env

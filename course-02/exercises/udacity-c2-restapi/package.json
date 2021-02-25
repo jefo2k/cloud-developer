@@ -1,19 +1,19 @@
 {
   "name": "udacity-c2-restapi",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/server.js",
+  "description": "Udagram",
+  "main": "./server.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./server.js",
     "tsc": "tsc",
-    "dev": "ts-node-dev ./src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
     "clean": "rimraf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Gabriel Ruttner",
+  "author": "Jefo",
   "license": "ISC",
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -21,6 +21,7 @@
     "aws-sdk": "^2.492.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
