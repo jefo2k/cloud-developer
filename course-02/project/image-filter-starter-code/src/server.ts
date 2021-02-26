@@ -27,7 +27,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
   app.get("/filteredimage", async (req, res) => {
-    const { image_url: imageUrl } = req.query;
+    const { image_url: imageUrl}: { image_url: string } = req.query;
 
     if (!imageUrl) {
       return res.status(400).send({ message: 'image_url is required' });
@@ -35,7 +35,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     try {
       // generate and send the resulting filtered image
-      const filteredImage = await filterImageFromURL(imageUrl);
+      const filteredImage: string = await filterImageFromURL(imageUrl);
       res.sendFile(filteredImage, async err => {
         // remove image locally after image has sent
         if (!err) {
